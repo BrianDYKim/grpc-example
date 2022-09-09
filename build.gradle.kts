@@ -5,6 +5,7 @@ plugins {
     id("io.spring.dependency-management")
     kotlin("jvm")
     kotlin("plugin.spring")
+    id("com.google.protobuf")
 }
 
 allprojects {
@@ -56,12 +57,6 @@ configure(subprojects.filter { it.name !in nonDependentProjects }) {
 
         // Annotation Processing Tool
         annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
-    }
-
-    allOpen {
-        annotation("javax.persistence.Entity")
-        annotation("javax.persistence.MappedSuperclass")
-        annotation("javax.persistence.Embeddable")
     }
 
     tasks.withType<KotlinCompile> {
