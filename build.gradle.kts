@@ -46,8 +46,13 @@ configure(subprojects.filter { it.name !in nonDependentProjects }) {
         // Spring Boot Dependencies
         implementation("org.springframework.boot:spring-boot-starter-webflux")
 
+        // Armeria
+        implementation("com.linecorp.armeria:armeria-grpc")
+        implementation("com.linecorp.armeria:armeria-spring-boot2-webflux-starter")
+
         // Test Implementation
         testImplementation("org.springframework.boot:spring-boot-starter-test")
+
         // mockk
         testImplementation("io.mockk:mockk:$mockkVersion")
         testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion") // for kotest framework
@@ -55,8 +60,19 @@ configure(subprojects.filter { it.name !in nonDependentProjects }) {
         testImplementation("io.kotest:kotest-property:$kotestVersion") // for kotest property test
         testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
 
+        // log
+        implementation("io.github.microutils:kotlin-logging:1.12.5")
+        implementation("ch.qos.logback:logback-classic:1.2.3")
+
         // Annotation Processing Tool
         annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom("com.linecorp.armeria:armeria-bom:0.99.9")
+            mavenBom("io.netty:netty-bom:4.1.51.Final")
+        }
     }
 
     tasks.withType<KotlinCompile> {

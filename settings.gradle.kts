@@ -17,7 +17,6 @@ pluginManagement {
     }
 }
 
-include("independent")
-include("independent:grpc-interface")
+include("grpc-interface")
 include("client")
 include("server")
