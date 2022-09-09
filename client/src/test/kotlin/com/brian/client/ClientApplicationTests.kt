@@ -1,10 +1,10 @@
-package com.brian.grpcexample
+package com.brian.client
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class GrpcExampleApplicationTests {
+class ClientApplicationTests {
 
     @Test
     fun contextLoads() {

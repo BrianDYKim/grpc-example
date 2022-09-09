@@ -1,11 +1,11 @@
-package com.brian.grpcexample
+package com.brian.client
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class GrpcExampleApplication
+class ClientApplication
 
 fun main(args: Array<String>) {
-    runApplication<GrpcExampleApplication>(*args)
+    runApplication<ClientApplication>(*args)
 }
